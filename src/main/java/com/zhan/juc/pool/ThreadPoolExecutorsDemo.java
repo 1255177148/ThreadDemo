@@ -12,6 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolExecutorsDemo {
     public static void main(String[] args) {
+
+        // 获取CPU的核数
+        System.out.println("CPU的核数为: " + Runtime.getRuntime().availableProcessors());
+
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 2,  // 核心线程数
                 5,  // 最大核心线程数
