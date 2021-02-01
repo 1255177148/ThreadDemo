@@ -8,29 +8,21 @@ import java.lang.reflect.InvocationTargetException;
  * @Author Zhanzhan
  * @Date 2021/1/30 14:34
  */
-public class EnumSingle {
+public enum  EnumSingle {
 
-    enum EnumTest{
-        INSTANCE;
+    INSTANCE;
 
-        private EnumSingle enumSingle = null;
+    public void anyMethod(){
 
-        private EnumTest(){
-            enumSingle = new EnumSingle();
-        }
-
-        public EnumSingle getEnumSingle(){
-            return enumSingle;
-        }
     }
 
 
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor<EnumTest> declaredConstructor = EnumTest.class.getDeclaredConstructor(String.class, int.class);
+        Constructor<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class, int.class);
         declaredConstructor.setAccessible(true);
 
-        EnumTest instance1 = declaredConstructor.newInstance();
-        EnumTest instance2 = declaredConstructor.newInstance();
+        EnumSingle instance1 = declaredConstructor.newInstance();
+        EnumSingle instance2 = declaredConstructor.newInstance();
         System.out.println(instance1);
         System.out.println(instance2);
     }
